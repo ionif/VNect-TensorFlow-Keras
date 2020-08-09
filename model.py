@@ -221,15 +221,6 @@ class vnect_model(object):
         res_5b = layers.Activation('relu')(res_5b)
 
         #Stage 5c
-        res_5c_1 = layers.Conv2DTranspose(128,
-                                          kernel_size=(4, 4),
-                                          strides=(2, 2),
-                                          padding="same",
-                                          kernel_initializer='he_normal',
-                                          name='res_5c_1')(res_5b)
-        res_5c_1 = layers.BatchNormalization(fused=True,
-                                             name='bn_5c_1')(res_5c_1)
-        res_5c_1 = layers.Activation('relu')(res_5c_1)
 
         res_5c_2 = layers.Conv2DTranspose(self.number_of_joints * 3,
                                           kernel_size=(4, 4),
